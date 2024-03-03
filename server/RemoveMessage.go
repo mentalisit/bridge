@@ -2,7 +2,6 @@ package server
 
 import (
 	"github.com/mentalisit/models"
-	tg "github.com/mentalisit/rsbot/bridge/Telegram"
 	"strconv"
 )
 
@@ -19,7 +18,7 @@ func (b *Bridge) RemoveMessage() {
 					if err != nil {
 						return
 					}
-					go tg.DeleteMessage(s.ChatId, mid)
+					go b.telegram.DeleteMessage(s.ChatId, mid)
 				}
 			} else {
 				mem = append(mem, memory)

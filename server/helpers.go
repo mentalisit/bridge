@@ -3,7 +3,6 @@ package server
 import (
 	"fmt"
 	"github.com/mentalisit/models"
-	tg "github.com/mentalisit/rsbot/bridge/Telegram"
 	"math/rand"
 	"regexp"
 	"strconv"
@@ -15,12 +14,12 @@ func (b *Bridge) ifTipDelSend(text string) {
 		go b.discord.SendChannelDelSecondDs(b.in.ChatId, "```"+text+"```", 30)
 		go b.discord.DeleteMessageDs(b.in.ChatId, b.in.MesId)
 	} else if b.in.Tip == "tg" {
-		go tg.SendChannelDelSecond(b.in.ChatId, text, 30)
+		go b.telegram.SendChannelDelSecond(b.in.ChatId, text, 30)
 		mid, err := strconv.Atoi(b.in.MesId)
 		if err != nil {
 			return
 		}
-		go tg.DeleteMessage(b.in.ChatId, mid)
+		go b.telegram.DeleteMessage(b.in.ChatId, mid)
 	}
 }
 func (b *Bridge) ifChannelTip(relay *models.BridgeConfig) {
@@ -84,7 +83,7 @@ func (b *Bridge) delIncomingMessage() {
 		if err != nil {
 			return
 		}
-		go tg.DeleteMessage(b.in.ChatId, mid)
+		go b.telegram.DeleteMessage(b.in.ChatId, mid)
 	}
 }
 

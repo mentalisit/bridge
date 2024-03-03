@@ -1,4 +1,4 @@
-module github.com/mentalisit/rsbot/bridge
+module github.com/mentalisit/bridge
 
 go 1.22.0
 

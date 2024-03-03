@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/mentalisit/bridge/server"
 	"github.com/mentalisit/logger"
-	"github.com/mentalisit/rsbot/bridge/server"
 )
 
 func main() {

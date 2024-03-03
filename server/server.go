@@ -2,10 +2,10 @@ package server
 
 import (
 	"github.com/gin-gonic/gin"
+	ds "github.com/mentalisit/bridge/Discord"
+	tg "github.com/mentalisit/bridge/Telegram"
 	"github.com/mentalisit/logger"
 	"github.com/mentalisit/models"
-	ds "github.com/mentalisit/rsbot/bridge/Discord"
-	tg "github.com/mentalisit/rsbot/bridge/Telegram"
 	"net/http"
 	"os"
 )
